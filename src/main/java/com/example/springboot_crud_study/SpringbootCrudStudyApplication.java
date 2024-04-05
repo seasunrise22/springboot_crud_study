@@ -1,13 +1,13 @@
-package com.example.firstproject;
+package com.example.springboot_crud_study;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FirstprojectApplication {
+public class SpringbootCrudStudyApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FirstprojectApplication.class, args);
+		SpringApplication.run(SpringbootCrudStudyApplication.class, args);
 	}
 
 }
