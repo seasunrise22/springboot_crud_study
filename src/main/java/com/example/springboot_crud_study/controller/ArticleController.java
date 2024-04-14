@@ -36,7 +36,7 @@ public class ArticleController {
         Article saved = articleRepository.save(article);
         log.info(saved.toString());
 
-        return "";
+        return "redirect:/articles/" + saved.getId(); // 리다이렉트(재요청 지시)
     }
 
     @GetMapping("/articles/{id}") // 데이터 조회 요청 접수
