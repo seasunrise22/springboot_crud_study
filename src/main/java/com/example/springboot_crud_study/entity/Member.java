@@ -29,4 +29,11 @@ public class Member {
                 ", password='" + password + '\'' +
                 '}';
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Member() {
+    }
 }
