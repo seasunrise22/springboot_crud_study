@@ -56,4 +56,26 @@ public class MemberController {
 
         return "members/index";
     }
+
+    @GetMapping("/members/{id}/edit")
+    public String edit(@PathVariable Long id, Model model) {
+        Member memberEntity = memberRepository.findById(id).orElse(null);
+        model.addAttribute("member", memberEntity);
+
+        return "members/edit";
+    }
+
+    @PostMapping("/members/update")
+    public String update(MemberForm form) {
+        log.info(form.toString());
+
+        Member memberEntity = form.toEntity();
+        log.info(memberEntity.toString());
+
+        memberRepository.findById(memberEntity.getId()).ifPresent(member -> { // 람다 표현식 이라고 함. orElse 말고 이런 식으로도 구현 가능. null 체크 불필요해짐.
+            memberRepository.save(memberEntity);
+        });
+
+        return "redirect:/members/" + memberEntity.getId();
+    }
 }

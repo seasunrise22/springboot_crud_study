@@ -1,0 +1,25 @@
+{{>layouts/header}}
+
+{{#member}}
+    <form class="container" action="/members/update" method="post">
+        <input name="id" type="hidden" value="{{id}}">
+        <div class="mb-3">
+            <label for="email" class="form-label">이메일</label>
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
+                   value="{{email}}">
+            <div id="emailHelp" class="form-text">귀하의 이메일을 다른 사람과 절대 공유하지 않을 것입니다.</div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">비밀번호</label>
+            <input type="password" class="form-control" id="password" name="password" value="{{password}}">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="emailCheck">
+            <label for="emailCheck" class="form-check-label">아이디 기억</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/members" class="btn btn-danger">Back</a>
+    </form>
+{{/member}}
+
+{{>layouts/footer}}

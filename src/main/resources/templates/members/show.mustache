@@ -18,6 +18,8 @@
     {{/member}}
     </tbody>
 </table>
-<a href="/members">유저목록</a>
+<a href="/members" class="btn btn-primary">유저 목록</a>
+<a href="/members/{{member.id}}/edit" class="btn btn-warning">수정</a>
+<a href="/members/{{member.id}}/edit" class="btn btn-danger">삭제<a>
 
 {{>layouts/footer}}
