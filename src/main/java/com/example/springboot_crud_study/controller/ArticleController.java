@@ -89,4 +89,17 @@ public class ArticleController {
     }
 
     @GetMapping("/articles/{id}/delete")
+    public String delete(@PathVariable Long id) {
+        log.info("삭제 요청이 들어왔습니다!");
+
+        // 1. 삭제할 대상 가져오기
+        articleRepository.findById(id).ifPresent(article -> {
+            log.info(article.toString());
+//            articleRepository.delete(article);
+        });
+        // 2. 대상 엔티티 삭제하기
+        // 3. 결과 페이지로 리다이렉트하기
+
+        return "redirect:/articles";
+    }
 }
