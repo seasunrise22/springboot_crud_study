@@ -25,6 +25,14 @@ public class Article {
         return id;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
     @Override
     public String toString() {
         return "Article{" +
