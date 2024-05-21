@@ -27,15 +27,15 @@ public class ArticleController {
 
     @PostMapping("/articles/create")
     public String createArticle(ArticleForm form) {
-        log.info(form.toString());
+        log.info("ArticleForm: " + form.toString());
 
         // 1. DTO를 엔티티로 변환
         Article articleEntity = form.toEntity();
-        log.info(articleEntity.toString());
+        log.info("ArticleEntity: " + articleEntity.toString());
 
         // 2. 리파지터리로 엔티티를 DB에 저장
         Article saved = articleRepository.save(articleEntity);
-        log.info(saved.toString());
+        log.info("saved: " + saved.toString());
 
         return "redirect:/articles/" + saved.getId(); // 리다이렉트(재요청 지시)
     }

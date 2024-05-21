@@ -9,14 +9,13 @@ public class ArticleForm {
     private String title;
     private String content;
 
-    public ArticleForm(Long id, String title, String content) {
-        this.id = id;
+    public ArticleForm(String title, String content) {
         this.title = title;
         this.content = content;
     }
 
     public Article toEntity() {
-        return new Article(id, title, content);
+        return new Article(title, content);
     }
 
     /*public void setId(Long id) {
