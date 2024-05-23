@@ -7,14 +7,16 @@ public class CoffeeDto {
     private String name;
     private String price;
 
-    public CoffeeDto(Long id, String name, String price) {
-        this.id = id;
+    public CoffeeDto(String name, String price) {
         this.name = name;
         this.price = price;
     }
 
+    public CoffeeDto() {
+    }
+
     public Coffee toEntity() {
-        return new Coffee(id, name, price);
+        return new Coffee(name, price);
     }
 
     /*public void setId(Long id) {

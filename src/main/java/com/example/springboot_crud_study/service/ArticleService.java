@@ -6,8 +6,10 @@ import com.example.springboot_crud_study.repository.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service // 서비스 객체 생성
@@ -39,5 +41,31 @@ public class ArticleService {
         }
         target.patch(dto);
         return articleRepository.save(target);
+    }
+
+    public Article delete(Long id) {
+        Article target = articleRepository.findById(id).orElse(null);
+
+        if(target == null) {
+            log.warn("delete not working");
+            return null;
+        }
+        articleRepository.delete(target);
+        return target;
+    }
+
+    @Transactional
+    public List<Article> createArticles(List<ArticleForm> dtos) {
+        List<Article> articleList = dtos.stream()
+                .map(dto -> dto.toEntity())
+                .collect(Collectors.toList());
+
+        articleList.stream()
+                .forEach(article -> articleRepository.save(article));
+
+        // 강제 예외 발생
+        articleRepository.findById(-1L).orElseThrow(() -> new IllegalArgumentException("결제 실패!"));
+
+        return articleList;
     }
 }

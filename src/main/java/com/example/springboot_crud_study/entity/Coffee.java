@@ -16,8 +16,7 @@ public class Coffee {
     public Coffee() {
     }
 
-    public Coffee(Long id, String name, String price) {
-        this.id = id;
+    public Coffee(String name, String price) {
         this.name = name;
         this.price = price;
     }
