@@ -1,5 +1,6 @@
 package com.example.springboot_crud_study.service;
 
+import com.example.springboot_crud_study.dto.ArticleForm;
 import com.example.springboot_crud_study.entity.Article;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,5 +66,23 @@ class ArticleServiceTest {
 //                .usingRecursiveComparison().ignoringFields("id")
 //                .isEqualTo(expected);
         assertThat(article).isNull();
+    }
+
+    @Test
+    void create_성공() {
+        String title = "라라라라";
+        String content = "4444";
+        ArticleForm dto = new ArticleForm(title, content);
+
+        // 예상 데이터
+        Article expected = new Article(title, content);
+
+        // 실제 데이터
+        Article article = articleService.create(dto);
+
+        // 비교 및 검증
+        assertThat(article)
+                .usingRecursiveComparison().ignoringFields("id")
+                .isEqualTo(expected);
     }
 }
