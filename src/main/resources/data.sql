@@ -13,12 +13,12 @@ INSERT INTO comment(article_id, nickname, body) VALUES(4, '행인', '탑승 완�
 INSERT INTO comment(article_id, nickname, body) VALUES(4, '히히', '탑승 완료3');
 
 -- 5번 게시글 댓글
-INSERT INTO comment(article_id, nickname, body) VALUES(5, '하이', '고슴도치 같은데');
+INSERT INTO comment(article_id, nickname, body) VALUES(5, 'ㅇㅇ', '고슴도치 같은데');
 INSERT INTO comment(article_id, nickname, body) VALUES(5, '미국', '미국 오리너구리 아님?');
 INSERT INTO comment(article_id, nickname, body) VALUES(5, '영국', '영국 토끼인 듯');
 
 -- 6번 게시글 댓글
-INSERT INTO comment(article_id, nickname, body) VALUES(6, '중고인', '얼만가요?');
+INSERT INTO comment(article_id, nickname, body) VALUES(6, 'ㅇㅇ', '얼만가요?');
 INSERT INTO comment(article_id, nickname, body) VALUES(6, '사랑', '사랑으로 삽니다.');
 INSERT INTO comment(article_id, nickname, body) VALUES(6, '대망', '탐스럽군요');
 

@@ -2,8 +2,16 @@ package com.example.springboot_crud_study.entity;
 
 import com.example.springboot_crud_study.dto.ArticleForm;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
+@Getter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,35 +20,6 @@ public class Article {
     private String title;
     @Column
     private String content;
-
-    public Article() {
-    }
-
-    public Article(String title, String content) {
-        this.title = title;
-        this.content = content;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    @Override
-    public String toString() {
-        return "Article{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                '}';
-    }
 
     //    public void patch(Article article) {
     public void patch(ArticleForm dto) {
